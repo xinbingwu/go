@@ -24,13 +24,17 @@ pipeline {
 					}
 			      }
 			}
+			
+			steps {
+				echo 'hello world'
+			}
 	
 
 		}	
 	}
 
 	post {
-		failure {
+		always {
 			mail to: 'xinbingwu@yeah.net', subject: 'The pipeline is failed!', body: "Something is wrong with ${env.BUILD_URL}"
 
 		}
