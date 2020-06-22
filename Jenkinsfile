@@ -3,15 +3,15 @@ pipeline {
 	
 	stages {
 		stage('stash-保存文件'){
-			agent{label “master"}
+			agent { label “master" }
 			steps {
-				writeFile file:"a.txt",text:"$BUILD_NUMBER"
-				stash(name:"abc", includes:"a.txt")
+				writeFile file: "a.txt",text: "$BUILD_NUMBER"
+				stash(name: "abc", includes: "a.txt")
 			}
 		}
 
 		stage('unstash-提取文件'){
-			agent{label "node2}
+			agent { label "node2" }
 			steps{
 				script {
 					unstash("abc")
