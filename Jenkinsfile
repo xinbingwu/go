@@ -10,12 +10,7 @@ pipeline {
 	}	
 	stages {
 		stage("输出文字"){
-			steps {
-				sh "mvn clean package spring-boot:repackage"
-				sh "printenv"
 			
-			}
-
 			options {
 				timeout(time: 3, unit: 'MINUTES')
 	
