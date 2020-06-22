@@ -28,7 +28,10 @@ pipeline {
 					 dir("/tmp/jenkins/"){
 						pwd
 						deleteDir()
-					}	
+					}
+					writeFile(file:"base64File",text:"I am a good time", encoding:"Base64")
+					def content = readFile(file: 'base64File',encoding:'UTF-8')    	
+					echo "${content}"
 			      }
 			}
 			
