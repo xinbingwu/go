@@ -16,12 +16,13 @@ pipeline {
 			
 			}
 
-		options {
-			timeout(time:3, unit:'MINUTES')
+			options {
+				timeout(time:3, unit:'MINUTES')
 	
-		}
+			}
 	
 
+		}	
 	}
 
 	post {
