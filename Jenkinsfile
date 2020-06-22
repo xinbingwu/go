@@ -16,6 +16,8 @@ pipeline {
 				sh 'printenv'
 			}
 
+		}
+
 	}
 
 }
