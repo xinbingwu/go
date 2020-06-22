@@ -12,7 +12,17 @@ pipeline {
 
 		}
 
+		stage('retry'){
+			retry(5){
+				script  {
+					sh(script: 'curl http://example', returnStatus:true)
+				}
+			}
+
+
+		}
 	}
+
 }
 
 
