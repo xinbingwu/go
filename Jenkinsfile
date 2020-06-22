@@ -12,7 +12,7 @@ pipeline {
 			}
 		}
 		stage {
-			sh "${CC}${DEBUG_FLAGS}'
+			sh "${CC}${DEBUG_FLAGS}"
 			sh 'printenv'
 		}
 
