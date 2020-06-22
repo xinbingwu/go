@@ -17,4 +17,10 @@ pipeline {
 
 	}
 
+	post {
+		failure {
+			mail to:'xinbingwu@yeah.net', subject:'The pipeline is failed!'
+		}
+	}
+
 }
