@@ -1,15 +1,18 @@
 pipeline {
-	agent none
+	agent any
 	
 	stages {
-		stage('docker'){
-			def t = tool(name:'docker')
-			echo "${t}"
+		stage('docker') {
+			steps {
+				script { 
+					def t = tool(name:'docker')
+					echo "${t}"
+				}
+			}
+
 		}
 
-
 	}
-
 }
 
 
