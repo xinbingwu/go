@@ -12,7 +12,7 @@ pipeline {
 
 		}
 
-		stage('retry'){i
+		stage('retry'){
 			steps{
 				retry(5){
 					script  {
