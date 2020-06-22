@@ -1,33 +1,17 @@
 pipeline {
-	agent any
-	
+	agent any 
 	stages {
-		stage('docker') {
+	
+		stage('Example'){
 			steps {
-				script { 
-					def t = tool(name:'docker')
-					echo "${t}"
-				}
+				echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" 
 			}
-
-		}
-
-		stage('retry'){
-			steps{
-				retry(5){
-					script  {
-						sh(script: 'curl http://example', returnStatus:true)
-						for(i=0; i<5; ++i){
-							echo "这是第${i}个数"
-						}
-					}
-				}
-			}
-
-
 		}
 	}
-
 }
+
+
+
+
 
 
