@@ -17,7 +17,7 @@ pipeline {
 			}
 
 			options {
-				timeout(time:3, unit:'MINUTES')
+				timeout(time: 3, unit: 'MINUTES')
 	
 			}
 	
@@ -27,8 +27,12 @@ pipeline {
 
 	post {
 		failure {
-			mail to:'xinbingwu@yeah.net', subject:'The pipeline is failed!'
+			mail to: 'xinbingwu@yeah.net', subject: 'The pipeline is failed!'
 		}
 	}
 
 }
+
+
+
+
