@@ -1,6 +1,10 @@
 pipeline {
 	agent any 
 
+        option {
+		retry(4)
+	}
+
 	tools {
 		maven  'mvn-3.5.4'
 	}	
