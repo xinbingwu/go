@@ -5,7 +5,7 @@ pipeline {
 		stage('stash-保存文件'){
 			agent { label “master" }
 			steps {
-				writeFile file: "a.txt",text: "$BUILD_NUMBER"
+				writeFile(file: "a.txt",text: "$BUILD_NUMBER")
 				stash(name: "abc", includes: "a.txt")
 			}
 		}
