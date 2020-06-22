@@ -20,6 +20,14 @@ pipeline {
 				timeout(time: 3, unit: 'MINUTES')
 	
 			}
+
+			steps {
+
+				def browsers = ['chrome','firefox']
+				for (int i=0; i<browsers.size(); ++i){
+					echo "Testing the ${browsers[i]} browser"	
+				}
+			}
 	
 
 		}	
