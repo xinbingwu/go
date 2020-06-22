@@ -20,14 +20,18 @@ pipeline {
 				script {
 					def browsers = ['chrome','firefox']
 					for (int i=0; i<browsers.size(); ++i){
-						echo "Testing the ${browsers[i]} browser"	
-					}
+						echo "Testing the ${browsers[i]} browser"
+				         }
+	
+					 println env.WORKSPACE
+					 println env
+					 dir("/tmp/jenkins/"){
+						pwd
+						deleteDir()
+					}	
 			      }
 			}
 			
-			steps {
-				echo 'hello world'
-			}
 	
 
 		}	
