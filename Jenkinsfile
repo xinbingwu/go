@@ -1,7 +1,7 @@
 pipeline {
 	agent any 
 
-        option {
+        options {
 		retry(4)
 	}
 
@@ -15,6 +15,9 @@ pipeline {
 				sh "printenv"
 			
 			}
+
+		options {
+			timeout(time:3, unit:'MINUTES')
 	
 		}
 	
