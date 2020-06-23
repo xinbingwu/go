@@ -15,6 +15,21 @@ pipeline {
 		}
 	}
 
+	post {
+                failure {
+                        updateGitlabCommitStatus name:'build', state:'faild'
+                }
+                success {
+                        updateGitlabCommitStatus name:'build', state:'success'
+                }
+        }
+
+        options {
+                gitLabConnection('gitlab')
+        }
+
+
+
 }
 
 
