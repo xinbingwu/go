@@ -5,7 +5,7 @@ pipeline {
 	}
 
 	stages {
-		stage("Nighty build'){
+		stage('Nighty build'){
 			steps {
 				echo '这是一个耗时的构建，每天凌晨执行。'
 			}
