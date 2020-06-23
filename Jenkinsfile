@@ -23,6 +23,7 @@ pipeline {
 				GOPATH = "${env.WORKSPACE}/subdir/"
 			}
 			steps {
+				sh "printenv"
 				sh "go build"
 			}
 		}
