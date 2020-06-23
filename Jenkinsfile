@@ -12,6 +12,7 @@ pipeline {
 		stage('build'){
 			steps{
 				sh "go build"
+				sh "printenv"
 			}
 		}
 	}
