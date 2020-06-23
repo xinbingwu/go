@@ -1,35 +1,19 @@
 pipeline {
-	agent any
+	agent any 
+	triggers {
+		cron("0 0 * * *")
+	}
+
 	stages {
-		stage("build with go-new"){
-			tools {
-				go 'go-new'
-			}
-			environment {
-				GOPATH = "${env.WORKSPACE}/"	
-			}
+		stage("Nighty build'){
 			steps {
-				sh "printenv"
-				//sh "go build"
-			}
-		}
-
-
-		stage("build with go-1.13"){
-			tools {
-				go 'go-1.13'
-			}
-			environment {
-				GOPATH = "${env.WORKSPACE}/subdir/"
-			}
-			steps {
-				sh "printenv"
-				sh "go build"
+				echo '这是一个耗时的构建，每天凌晨执行。'
 			}
 		}
 	}
 
 }
+
 
 
 
