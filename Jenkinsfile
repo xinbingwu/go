@@ -1,21 +1,34 @@
 pipeline {
 	agent any
-	environment {
-		GOPATH =  "${env.WORKSPACE}/"
-	}
-
-	tools {
-		go 'go-new'
-	}
-
 	stages {
-		stage('build'){
-			steps{
+		stage("build with go-new"){
+			tools {
+				go 'go-new'
+			}
+			environment {
+				GOPATH = "${env.WORKSPACE}/"	
+			}
+			steps {
 				sh "printenv"
 				sh "go build"
-				sh "printenv"
+			}
+		}
+
+
+		stage("build with go-1.13"){
+			tools {
+				go 'go-1.13'
+			}
+			environment {
+				GOPATH = "${env.WORKSPACE}/subdir/"
+			}
+			steps {
+				sh "go build"
 			}
 		}
 	}
 
 }
+
+
+
