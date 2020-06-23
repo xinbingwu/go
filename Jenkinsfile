@@ -10,7 +10,7 @@ pipeline {
 			}
 			steps {
 				sh "printenv"
-				sh "go build"
+				//sh "go build"
 			}
 		}
 
