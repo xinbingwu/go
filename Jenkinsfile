@@ -1,20 +1,21 @@
 pipeline {
-	agent any 
+	agent any
 	triggers {
-		//cron("*/1 * * * *")
-		cron("H/1 * * * *")
+		gitlab(triggerOnPush:true,
+			triggerOnMergeRequest:true,
+			branchFilterType:'All',
+			secretToken:"abcde")
 	}
 
 	stages {
-		stage('Nighty build'){
-			steps {
-				echo '这是一个耗时的构建，每天凌晨执行。'
+		stage('build'){
+			steps{
+				echo "hello world from gitlab trigger"
 			}
 		}
 	}
 
 }
-
 
 
 
