@@ -1,28 +1,19 @@
 pipeline {
-	agent any 
+	agent any
 	environment {
-		CC = 'clang'
+		GOPATH =  "${env.WORKSPACE}/"
 	}
 
+	tools {
+		go 'go-new'
+	}
 
 	stages {
-		stage('Example'){
-			environment {
-				DEBUG_FLAGS = '-g'
-			}  //这里是在stage中定义变量
-	
-			steps {
-				sh "${CC}${DEBUG_FLAGS}"
-				sh 'printenv'
+		stage('build'){
+			steps{
+				sh "go build"
 			}
-
 		}
-
 	}
 
 }
-
-
-
-
-
